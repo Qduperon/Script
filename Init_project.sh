@@ -6,7 +6,7 @@
 #    By: qduperon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/17 12:25:58 by qduperon          #+#    #+#              #
-#    Updated: 2016/06/17 16:55:44 by qduperon         ###   ########.fr        #
+#    Updated: 2016/06/17 17:00:45 by qduperon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,4 +27,4 @@ touch $name.h
 mv $name.h includes
 touch Makefile
 cd ..
-cp libft $name
+cp -R libft $name
