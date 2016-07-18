@@ -6,7 +6,7 @@
 #    By: qduperon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 11:29:17 by qduperon          #+#    #+#              #
-#    Updated: 2016/02/08 15:15:49 by qduperon         ###   ########.fr        #
+#    Updated: 2016/07/18 14:51:09 by qduperon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,70 +94,75 @@ SRC_UTILITY	=	utility/ft_atoi.c \
 #                       //  OBJECTS  \\                          #
 #================================================================#
 
-OBJECTS		=	ft_atoi.o \
-				ft_bzero.o \
-				ft_isalnum.o \
-				ft_isalpha.o \
-				ft_isascii.o \
-				ft_isdigit.o \
-				ft_isprint.o \
-				ft_itoa.o \
-				ft_isspace.o \
-				ft_lstadd.o \
-				ft_lstdel.o \
-				ft_lstdelone.o \
-				ft_lstiter.o \
-				ft_lstmap.o \
-				ft_lstnew.o \
-				ft_memalloc.o \
-				ft_memccpy.o \
-				ft_memchr.o \
-				ft_memcmp.o \
-				ft_memcpy.o \
-				ft_memdel.o \
-				ft_memmove.o \
-				ft_memset.o \
-				ft_putchar.o \
-				ft_putchar_fd.o \
-				ft_putendl.o \
-				ft_putendl_fd.o \
-				ft_putnbr.o \
-				ft_putnbr_fd.o \
-				ft_putstr.o \
-				ft_putstr_fd.o \
-				ft_size_base.o \
-				ft_strcat.o \
-				ft_strchr.o \
-				ft_strclr.o \
-				ft_strcmp.o \
-				ft_strcpy.o \
-				ft_strdel.o \
-				ft_strdup.o \
-				ft_strequ.o \
-				ft_striter.o \
-				ft_striteri.o \
-				ft_strjoin.o \
-				ft_strlcat.o \
-				ft_strlen.o \
-				ft_strmap.o \
-				ft_strmapi.o \
-				ft_strncat.o \
-				ft_strncmp.o \
-				ft_strncpy.o \
-				ft_strnequ.o \
-				ft_strnew.o \
-				ft_strnstr.o \
-				ft_strrchr.o \
-				ft_strrev.o \
-				ft_strsplit.o \
-				ft_strstr.o \
-				ft_strsub.o \
-				ft_strtolower.o \
-				ft_strtoupper.o \
-				ft_strtrim.o \
-				ft_tolower.o \
-				ft_toupper.o \
-				get_next_line.o \
+OBJECTS_TEST	=	ft_isalnum.o \
+					ft_isalpha.o \
+					ft_isascii.o \
+					ft_isdigit.o \
+					ft_isprint.o \
+					ft_isspace.o \
+
+OBJECTS_LIST	=	ft_lstadd.o \
+					ft_lstdel.o \
+					ft_lstdelone.o \
+					ft_lstiter.o \
+					ft_lstmap.o \
+					ft_lstnew.o \
+
+OBJECTS_MEMORY	=	ft_memalloc.o \
+					ft_memccpy.o \
+					ft_memchr.o \
+					ft_memcmp.o \
+					ft_memcpy.o \
+					ft_memdel.o \
+					ft_memmove.o \
+					ft_memset.o \
+
+OBJECTS_PRINT	=	ft_putchar.o \
+					ft_putchar_fd.o \
+					ft_putendl.o \
+					ft_putendl_fd.o \
+					ft_putnbr.o \
+					ft_putnbr_fd.o \
+					ft_putstr.o \
+					ft_putstr_fd.o \
+
+OBJECTS_STRING	=	ft_strcat.o \
+					ft_strchr.o \
+					ft_strclr.o \
+					ft_strcmp.o \
+					ft_strcpy.o \
+					ft_strdel.o \
+					ft_strdup.o \
+					ft_strequ.o \
+					ft_striter.o \
+					ft_striteri.o \
+					ft_strjoin.o \
+					ft_strlcat.o \
+					ft_strlen.o \
+					ft_strmap.o \
+					ft_strmapi.o \
+					ft_strncat.o \
+					ft_strncmp.o \
+					ft_strncpy.o \
+					ft_strnequ.o \
+					ft_strnew.o \
+					ft_strnstr.o \
+					ft_strrchr.o \
+					ft_strrev.o \
+					ft_strsplit.o \
+					ft_strstr.o \
+					ft_strsub.o \
+					ft_strtolower.o \
+					ft_strtoupper.o \
+					ft_strtrim.o \
+
+OBJECTS_UTILITY	=	ft_atoi.o \
+					ft_bzero.o \
+					ft_itoa.o \
+					ft_size_base.o \
+					ft_tolower.o \
+					ft_toupper.o \
+					get_next_line.o \
 
 #============================================================#
 #                      //  FLAGS  \\                         #
@@ -177,10 +182,12 @@ $(NAME):
 		$(SRC_PRINT) $(SRC_STRING) $(SRC_UTILITY) -I ./includes
 	@echo "\033[31mCompilation Sucessfull"
 	@echo "\033[32mBegin Library...\033[00m"
-	ar -r $(NAME) $(OBJECTS)
+	ar -r $(NAME) $(OBJECTS_TEST) $(OBJECTS_LIST) $(OBJECTS_MEMORY) \
+		$(OBJECTS_PRINT) $(OBJECTS_STRING) $(OBJECTS_UTILITY)
 	ranlib $(NAME)
 	mkdir Temporary
-	mv $(OBJECTS) Temporary	
+	mv $(OBJECTS_TEST) $(OBJECTS_LIST) $(OBJECTS_MEMORY) \
+	   $(OBJECTS_PRINT) $(OBJECTS_STRING) $(OBJECTS_UTILITY) Temporary	
 	@echo "\033[31mLibrary Finished\033[00m"
 
 #============================================================#
