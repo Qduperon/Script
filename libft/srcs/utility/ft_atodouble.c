@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atodouble.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 11:40:30 by qduperon          #+#    #+#             */
-/*   Updated: 2016/11/16 20:03:51 by qduperon         ###   ########.fr       */
+/*   Created: 2016/10/10 19:18:04 by qduperon          #+#    #+#             */
+/*   Updated: 2016/10/10 19:20:52 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <math.h>
 
-char	*ft_strcpy(char *dest, const char *src)
+double	ft_atodouble(char **str)
 {
-	int i;
+	double	value;
+	int		sign;
+	int		i;
 
-	i = 0;
-	while (src[i])
+	value = 0;
+	sign = (**str == '-') ? -1 : 1;
+	if (**str == '-' || **str == '+')
+		(*str)++;
+	while (ft_isdigit(**str))
 	{
-		dest[i] = src[i];
-		i++;
+		value = value * 10 + (**str - '0');
+		(*str)++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	if (**str == '.')
+	{
+		(*str)++;
+		i = 1;
+		while (ft_isdigit(**str))
+		{
+			value += (double)(**str - '0') / pow(10, i++);
+			(*str)++;
+		}
+	}
+	*str += 2;
+	return (value * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 10:15:14 by qduperon          #+#    #+#             */
-/*   Updated: 2016/02/08 15:14:28 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/11/02 15:34:18 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char				*ft_strsub(const char *s1, unsigned int start, size_t len);
 char				*ft_strtolower(char *str);
 char				*ft_strtoupper(char *str);
 char				*ft_strtrim(const char *s);
+double				ft_atodouble(char **str);
 int					ft_atoi(const char *str);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -81,6 +82,7 @@ void				*ft_memmove(void *dest, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
+void				ft_putdouble(double nb, int precision);
 void				ft_putendl(const char *s);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putnbr(int n);
